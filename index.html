@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Edgar Zambrano Dagger — Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Edgar Zambrano Dagger, full-stack developer. SaaS platforms, applied AI and cloud infrastructure." />
+<meta name="color-scheme" content="dark" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Edgar Zambrano Dagger — Full-Stack Developer" />
+<meta property="og:description" content="SaaS platforms, applied AI and cloud infrastructure." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <nav class="topbar__inner" aria-label="Main navigation">
+    <a class="brand" href="#top">
+      <span class="brand__prompt">~/</span>egdagger
+    </a>
+    <ul class="navlinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ── HERO ───────────────────────────────────────────── -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="hero__eyebrow"><span class="dot" aria-hidden="true"></span> Open to new projects</p>
+      <h1 class="hero__title">
+        Edgar Zambrano Dagger
+        <span class="hero__role">Full-Stack Developer</span>
+      </h1>
+      <p class="hero__lead">
+        I build web platforms people use every day, from the interface down to the
+        database and the cloud infrastructure. For the past few years I've focused on
+        <strong>SaaS products</strong> with <strong>AI</strong> built in.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#work">View work</a>
+        <a class="btn" href="https://github.com/egdagger" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WORK ───────────────────────────────────────────── -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <header class="section__head">
+        <h2 class="section__title"><span class="section__num">01</span> Work</h2>
+        <p class="section__sub">Four products I've worked on, most recent first.</p>
+      </header>
+
+      <div class="projects">
+
+        <!-- FreddAId -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/img/freddaid1.png" alt="FreddAId conversational assistant interface" loading="lazy" decoding="async" />
+          </div>
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="card__year">2024 – 2026</span>
+            </div>
+            <h3 class="card__title">FreddAId | ProActive</h3>
+            <p class="card__role">Full-stack developer · Sales Factory</p>
+            <p class="card__pitch">
+              An AI assistant for B2B sales teams. Instead of digging through hundreds
+              of internal documents, users ask a question in plain language and get an
+              answer grounded in their own company data. The platform also generates
+              brand and competitor reports on a schedule.
+            </p>
+            <ul class="tags">
+              <li>React</li><li>TypeScript</li><li>Python</li><li>Flask</li>
+              <li>Azure</li><li>LangGraph</li><li>Cosmos DB</li><li>Stripe</li>
+            </ul>
+
+            <details class="details">
+              <summary>Technical detail and my contribution</summary>
+              <div class="details__body">
+                <p class="note">
+                  The product lives across three repositories that make up one system:
+                  the web application, the AI orchestrator, and the Azure RAG
+                  infrastructure underneath.
+                </p>
+
+                <h4>1 · Web application</h4>
+                <p>
+                  React 18 + TypeScript frontend (Vite) with a Flask backend organised by
+                  domain. AI chat with file attachments, a data-analyst mode and speech
+                  synthesis; per-organisation knowledge management; scheduled reports
+                  delivered by email; team, role and subscription administration.
+                </p>
+                <ul class="bullets">
+                  <li>Migrated endpoints from the external orchestrator into the local backend (settings, invitations, current user) to cut latency and get proper error handling.</li>
+                  <li>Redesigned the subscription plans page and added in-app alerts for Stripe billing problems.</li>
+                  <li>Built the split-screen analysis panel with resizable panes so a document and the chat are visible at once.</li>
+                  <li>Set up the end-to-end test suite in Cypress covering onboarding, reports, knowledge sources, plans and team management.</li>
+                  <li>Per-organisation file limits, loading and error states for the service status check, sidebar active-section highlighting, and bundle size cleanup.</li>
+                  <li>Multiple web design creations</li>
+                </ul>
+
+                <h4>2 · AI orchestrator</h4>
+                <p>
+                  Azure Functions in Python driven by LangGraph: query rewriting,
+                  augmentation with organisational context, tool selection (document
+                  search, data analysis, web scraping) and response generation streamed
+                  in real time. When intent is ambiguous the orchestrator pauses and asks
+                  for clarification instead of guessing (human-in-the-loop).
+                </p>
+                <ul class="bullets">
+                  <li>Implemented the job scheduler that automatically produces competitor and product analysis reports, with unit test coverage.</li>
+                  <li>Refactored Azure Storage URL handling, including URL normalisation and a fix to the validation pattern.</li>
+                  <li>Hotfixed data-type mismatches and a report generation failure in production.</li>
+                </ul>
+
+                <h4>3 · Azure RAG infrastructure</h4>
+                <p>
+                  Built on Microsoft's open-source <em>GPT-RAG</em> accelerator: document
+                  ingestion and vectorisation, semantic retrieval with Azure AI Search,
+                  and Bicep deployments in either a simple or a zero-trust network setup.
+                </p>
+                <ul class="bullets">
+                  <li>Worked the infrastructure-as-code layer: Function App roles and permissions, Cosmos DB access for the reporting module, new containers, Event Grid wiring and log retention policies.</li>
+                  <li>Synced OpenAI and AI Search API versions and cleaned up Bicep templates.</li>
+                </ul>
+
+                <figure class="shot">
+                  <img src="assets/img/freddaid2.png" alt="FreddAId reporting and data analysis view" loading="lazy" decoding="async" />
+                  <figcaption>Onboarding.</figcaption>
+                </figure>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- BuzzScout -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/img/vibewaggler1.png" alt="BuzzScout dashboard showing review metrics" loading="lazy" decoding="async" />
+          </div>
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="tag tag--live">In production</span>
+              <span class="card__year">2025 – 2026</span>
+            </div>
+            <h3 class="card__title">VibeWaggler</h3>
+            <p class="card__role">Full-stack developer · small team, built from scratch</p>
+            <p class="card__pitch">
+              Businesses with several locations get reviews scattered across Google and
+              Yelp. VibeWaggler pulls them into one inbox, tracks how customer sentiment
+              shifts over time and drafts replies with AI. Each company only ever sees
+              its own data.
+            </p>
+            <ul class="tags">
+              <li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li>
+              <li>Deno</li><li>Terraform</li><li>AWS</li><li>Claude API</li>
+            </ul>
+
+            <details class="details">
+              <summary>Technical detail and my contribution</summary>
+              <div class="details__body">
+                <p>
+                  Multi-tenant platform: React 18 + TypeScript with shadcn/ui and TanStack
+                  Query on the front, Supabase (Postgres, Auth and Deno Edge Functions) as
+                  the backend, and delivery through AWS S3 + CloudFront managed with
+                  Terraform. Around 65 of my commits shipped to production, across every
+                  layer.
+                </p>
+                <ul class="bullets">
+                  <li><strong>Inbox and navigation:</strong> new protected routing system, stable server-side pagination and selection that survives page changes. This was the product's first release to production.</li>
+                  <li><strong>Role-based access:</strong> a landing router that sends each user to the right flow based on their role and onboarding state, including logic to resume an interrupted setup.</li>
+                  <li><strong>Users and organisations:</strong> full user CRUD, email invitations with an acceptance and set-password flow, organisation switching, and tenant isolation enforced at the database level.</li>
+                  <li><strong>Dashboards on real data and AI:</strong> replaced all mock data with real Postgres queries across four dashboards (sentiment, monthly tracker, location deep dive and overall pulse), with unified filtering, index-effectiveness checks, and Claude-generated insights backed by caching and a per-plan quota.</li>
+                  <li><strong>Per-location permissions:</strong> a manager can be scoped to a subset of locations, enforced by row-level security in Postgres.</li>
+                  <li><strong>Subscription limits:</strong> active-location caps tied to the Stripe plan, checked during onboarding and in location management.</li>
+                  <li><strong>QR codes:</strong> per-location codes that send customers straight to the review flow, with platform URL derivation covered by property-based tests.</li>
+                  <li><strong>MCP server:</strong> an Edge Function exposing tools so external AI assistants can query reputation metrics.</li>
+                  <li><strong>Embeddable widget:</strong> a one-line snippet (~6 KB, no dependencies) that renders a carousel of curated reviews on the client's own site, using shadow DOM, full keyboard and screen-reader support, and anonymous reads locked down to six fields.</li>
+                  <li><strong>Infra and CI/CD:</strong> two Terraform stacks and GitHub Actions deploys over OIDC with no long-lived credentials, split across migrations, Edge Functions and frontend.</li>
+                </ul>
+
+                <figure class="shot">
+                  <img src="assets/img/vibewaggler1.png" alt="VibeWaggler review management view" loading="lazy" decoding="async" />
+                  <figcaption>Review management and reply drafting.</figcaption>
+                </figure>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ScoopWaggler -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/img/scoopwaggler1.png" alt="ScoopWaggler brand visibility score report" loading="lazy" decoding="async" />
+          </div>
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="tag tag--live">v1.0 released</span>
+              <span class="card__year">2026</span>
+            </div>
+            <h3 class="card__title">ScoopWaggler</h3>
+            <p class="card__role">Design and build</p>
+            <p class="card__pitch">
+              When someone asks ChatGPT or Google about a product, does your brand show
+              up in the answer? ScoopWaggler measures it: it queries four AI platforms,
+              crawls the website, and returns a 0–100 score with a diagnostic report of
+              what to fix. Under two minutes end to end.
+            </p>
+            <ul class="tags">
+              <li>Python</li><li>FastAPI</li><li>React</li><li>AWS Lambda</li>
+              <li>Step Functions</li><li>DynamoDB</li><li>Terraform</li>
+            </ul>
+
+            <details class="details">
+              <summary>Technical detail and my contribution</summary>
+              <div class="details__body">
+                <p>
+                  Serverless architecture on AWS: API Gateway → orchestrator Lambda →
+                  four AI platform audits in parallel (30 prompts each) alongside a
+                  technical site crawl → scoring engine → PDF and web report → email
+                  notification.
+                </p>
+                <ul class="bullets">
+                  <li><strong>Composite score</strong> weighted per platform (Google, OpenAI, Perplexity, Claude) with automatic weight redistribution when one platform fails.</li>
+                  <li><strong>Five dimensions</strong> per platform: brand recognition, market competition, technical visibility and sentiment.</li>
+                  <li><strong>Competitive index</strong> that surfaces the top three rivals from the AI responses at no extra API cost.</li>
+                  <li><strong>Technical crawl</strong> of up to 20 pages with httpx: schema.org, llms.txt, AI bot rules, server- vs client-rendered detection and Core Web Vitals.</li>
+                  <li><strong>Pure, deterministic scoring engine</strong> with no side effects and unit tests per sub-function.</li>
+                  <li><strong>Constraints that shaped the design:</strong> a target cost of about $1.10 per report and sub-105s latency, which pushed the crawl and AI audits to run concurrently with per-platform caching.</li>
+                  <li><strong>Infrastructure as code</strong> in Terraform with separate environments, Cognito authentication and branch-based continuous deployment in GitHub Actions.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- Coffee Urban Tech -->
+        <article class="card card--nomedia">
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="tag">Academic</span>
+              <span class="card__year">University</span>
+            </div>
+            <h3 class="card__title">Coffee Urban Tech</h3>
+            <p class="card__role">Team project · Computer Engineering</p>
+            <p class="card__pitch">
+              A web system to run a coffee shop: inventory, purchasing, sales and
+              reporting from a single dashboard. A coursework project that doubled as
+              practice in collaborative version control.
+            </p>
+            <ul class="tags">
+              <li>React</li><li>Tailwind CSS</li><li>Node.js</li>
+            </ul>
+
+            <details class="details">
+              <summary>Technical detail and my contribution</summary>
+              <div class="details__body">
+                <ul class="bullets">
+                  <li>Set up the initial project template and base structure.</li>
+                  <li>Built the header and navigation components.</li>
+                  <li>Developed the Reports and Purchasing screens and their components.</li>
+                  <li>Contributed to the database integration and login.</li>
+                  <li>Configured Prettier to keep code style consistent across the repo.</li>
+                </ul>
+                <p>
+                  The team worked on a branch-and-pull-request flow (15+ PRs merged),
+                  building the system module by module.
+                </p>
+                <p>
+                  <a class="link" href="https://github.com/egdagger/Coffee-Urban-Tech" target="_blank" rel="noopener">View repository →</a>
+                </p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STACK ──────────────────────────────────────────── -->
+  <section class="section section--alt" id="stack">
+    <div class="wrap">
+      <header class="section__head">
+        <h2 class="section__title"><span class="section__num">02</span> Stack</h2>
+        <p class="section__sub">Tools I work with day to day.</p>
+      </header>
+
+      <div class="stack">
+        <div class="stack__group">
+          <h3>Frontend</h3>
+          <ul><li>React 18</li><li>TypeScript</li><li>Vite</li><li>Tailwind CSS</li><li>shadcn/ui</li><li>TanStack Query</li></ul>
+        </div>
+        <div class="stack__group">
+          <h3>Backend</h3>
+          <ul><li>Python</li><li>FastAPI</li><li>Flask</li><li>Node.js</li><li>Deno</li><li>PostgreSQL</li></ul>
+        </div>
+        <div class="stack__group">
+          <h3>Cloud &amp; infra</h3>
+          <ul><li>AWS (Lambda, S3, DynamoDB)</li><li>Azure (Functions, Cosmos DB)</li><li>Supabase</li><li>Terraform</li><li>Bicep</li><li>GitHub Actions</li></ul>
+        </div>
+        <div class="stack__group">
+          <h3>Applied AI</h3>
+          <ul><li>LangGraph / LangChain</li><li>RAG</li><li>OpenAI</li><li>Anthropic Claude</li><li>Azure AI Search</li><li>MCP</li></ul>
+        </div>
+        <div class="stack__group">
+          <h3>Quality</h3>
+          <ul><li>Cypress</li><li>Jest</li><li>Pytest</li><li>fast-check</li><li>Prettier / ESLint</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ──────────────────────────────────────────── -->
+  <section class="section" id="about">
+    <div class="wrap wrap--narrow">
+      <header class="section__head">
+        <h2 class="section__title"><span class="section__num">03</span> About</h2>
+      </header>
+      <div class="prose">
+        <p>
+          I'm Edgar Zambrano, a full-stack developer. I move comfortably between frontend
+          and backend, and I'm drawn to the point where the product meets the
+          infrastructure: something working on a developer's machine is fine, but the
+          interesting part is making it work in production, for real users, without
+          surprises.
+        </p>
+        <p>
+          My recent work has been mostly multi-tenant SaaS platforms with AI built in:
+          conversational assistants grounded in a company's own documents, automated
+          report generation and analytics dashboards. I also handle the less visible
+          side: tenant data isolation, permissions, per-plan limits, automated tests and
+          reproducible deployments.
+        </p>
+        <p>
+          I write code with the next reader in mind. I prefer pure, testable functions,
+          clear module boundaries and infrastructure declared in files rather than
+          clicked together by hand.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────────────── -->
+  <section class="section section--alt" id="contact">
+    <div class="wrap wrap--narrow">
+      <header class="section__head">
+        <h2 class="section__title"><span class="section__num">04</span> Contact</h2>
+        <p class="section__sub">Got something you're building? Get in touch.</p>
+      </header>
+      <ul class="contact">
+        <li>
+          <span class="contact__key">github</span>
+          <a class="link" href="https://github.com/egdagger" target="_blank" rel="noopener">github.com/egdagger</a>
+        </li>
+        <li>
+          <span class="contact__key">linkedin</span>
+          <a class="link" href="https://www.linkedin.com/in/edgar-zambrano-dagger-835771263/" target="_blank" rel="noopener">linkedin.com/in/egdagger</a>
+        </li>
+        <li>
+          <span class="contact__key">email</span>
+          <a class="link" href="mailto:edgarzam18d@gmail.com">edgarzam18d@gmail.com</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span id="year">2026</span> Edgar Zambrano Dagger</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
